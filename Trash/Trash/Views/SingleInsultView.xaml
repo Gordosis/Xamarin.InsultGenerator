@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trash.Views.AboutPage"
+             xmlns:vm="clr-namespace:Trash.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:SingleInsultViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView Grid.Row="0" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Entry x:Name="NameEntry" Placeholder="Enter your name..." Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                       TextColor="Black" PlaceholderColor="Black" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" 
+                       ReturnType="Done" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" MaxLength="20" />
+                <Button  Margin="30,10,30,10" Text="Generate Insult" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                        Command="{Binding OnClick_DisplayInsult}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" Clicked="Button_Clicked" 
+                        x:Name="SwearButton" BorderWidth="10" BorderColor="Red"/>
+                <Label x:Name="SwearDisplay" Text="{Binding DisplayInsultLabel}"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                       BackgroundColor="Aqua" TextColor="Black" Margin="30,10,30,30" HorizontalTextAlignment="Center" />
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

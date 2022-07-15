@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(InsultGenerator)</PackageId>
+    <SignAssembly>False</SignAssembly>
+    <ApplicationIcon>RNG.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="RNG.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\MultiInsultView.xaml.cs">
+      <DependentUpon>MultiInsultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SingleInsultView.xaml.cs">
+      <DependentUpon>SingleInsultView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
