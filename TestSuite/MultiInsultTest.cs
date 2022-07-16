@@ -7,11 +7,9 @@ using Xunit.Extensions;
 using Xamarin;
 using Xamarin.Forms;
 
-
 namespace TestSuite
 {
-    //[TestClass]
-    public class SingleInsultTest
+    public class MultiInsultTest
     {
         [Fact]
         public void TestMethod1()
@@ -26,12 +24,15 @@ namespace TestSuite
         }
 
         [Theory]
-        [InlineData ("TestName")]
-        public void TestSingleInsultReturnsValue(string insult)
+        [InlineData(87)]
+        public void TestMultiInsultReturnsValue(int x)
         {
-            var vm = new SingleInsultView();
+            var vm = new MultiInsultView();
 
-            Assert.NotEmpty(vm.GetInsult(insult));
+            Assert.NotEmpty(vm.GetNumInsult(x));
         }
     }
+
+
 }
+

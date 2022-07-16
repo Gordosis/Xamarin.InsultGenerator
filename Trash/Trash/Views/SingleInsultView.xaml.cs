@@ -7,10 +7,7 @@ namespace Trash.Views
 {
     public partial class SingleInsultView : ContentPage
     {
-        public SingleInsultView()
-        {
-            InitializeComponent();
-        }
+        public SingleInsultView() => InitializeComponent();
         protected override void OnAppearing()
         {
             base.OnAppearing();

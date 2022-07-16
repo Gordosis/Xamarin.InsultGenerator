@@ -12,11 +12,11 @@ using Xamarin.Forms.Xaml;
 
 namespace Trash.Views
 {
-    public partial class ItemsPage : ContentPage
+    public partial class MultiInsultView : ContentPage
     {
         MultiInsultViewModel _viewModel;
 
-        public ItemsPage()
+        public MultiInsultView()
         {
             InitializeComponent();
             BindingContext = _viewModel = new MultiInsultViewModel();
@@ -33,7 +33,7 @@ namespace Trash.Views
         public static string[] swearWord2 { get => Views.SingleInsultView.swearWord2; set => Views.SingleInsultView.swearWord2 = value; }
         Random rnd = new Random();
 
-        public string GetNumInsult()
+        public string GetNumInsult(int insultnum)
         {
             string finalSwear = "";
             string swearNum = (NumberEntry.Text);
@@ -70,7 +70,8 @@ namespace Trash.Views
 
         private void SwearButton_Clicked(object sender, EventArgs e)
         {
-            SwearDisplay.Text = GetNumInsult();
+            int insultnum = 0;
+            SwearDisplay.Text = GetNumInsult(insultnum);
         }
     }
 }
