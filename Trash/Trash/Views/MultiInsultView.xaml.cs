@@ -19,21 +19,18 @@ namespace Trash.Views
         public ItemsPage()
         {
             InitializeComponent();
-
             BindingContext = _viewModel = new MultiInsultViewModel();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            SwearDisplay.Text = "";
+            NumberEntry.Text = "";
             _viewModel.OnAppearing();
         }
-
-        public static readonly string[] swearWord1 = new string[] { " Cunt"," Fuck"," Motherfucking"," Bastard"," Beaver"," Bellend"," Clunge"," Cock",
-                                " Dick"," Dickhead"," Fanny"," Flaps"," Gash"," Knob"," Minge"," Prick"," Punani"," Pussy",
-                                " Snatch"," Twat","n Arsehole"," Balls"," Bitch"," Bollocks"," Bullshit"," Shit"," Tits"," Arse",
-                                " Bloody"," Bugger"," Cow"," Crap"," Damn"," Git"," Minger"," Bum"};
-        public static readonly string[] swearWord2 = new string[] { "Face", "Fart", "Head", "Waffle", "Pancake", "Bandit", "Licker", "Sucker" };
+        public static string[] swearWord1 { get => Views.SingleInsultView.swearWord1; set => Views.SingleInsultView.swearWord1 = value; }
+        public static string[] swearWord2 { get => Views.SingleInsultView.swearWord2; set => Views.SingleInsultView.swearWord2 = value; }
         Random rnd = new Random();
 
         public string GetNumInsult()
